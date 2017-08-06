@@ -16,8 +16,8 @@ func main() {
 		log.Fatal(err)
 	}
 	defer resp.Body.Close()
-	if resp.StatusCode != 200 {
-		log.Fatal("expected status 200, got %d", resp.StatusCode)
+	if resp.StatusCode != http.StatusOK {
+		log.Fatal("expected status %d, got %d", http.StatusOK, resp.StatusCode)
 	}
 	printReader(resp.Body)
 }
